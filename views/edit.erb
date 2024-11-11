@@ -1,0 +1,12 @@
+<form action="/thing/<%= @thing['id'] %>" method="post">
+  <label for="thing">Uppgift:</label>
+  <input type="text" name="thing" value="<%= @thing['thing'] %>" required>
+
+  <label for="impScale">Viktighetsvärde (1=Viktigast):</label>
+  <input type="number" name="impScale" min="1" value="<%= @thing['impScale'] %>" required>
+
+  <label for="description">Beskrivning:</label>
+  <input name="description"><%= @thing['description'] %></input>
+
+  <input type="submit" value="Spara ändringar">
+</form>

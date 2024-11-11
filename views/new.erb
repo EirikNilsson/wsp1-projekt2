@@ -1,0 +1,12 @@
+<form action="/thing" method="post">
+  <label for="thing">Uppgift:</label>
+  <input type="text" name="thing" required>
+
+  <label for="impScale">Viktighetsvärde (1=Viktigast):</label>
+  <input type="number" name="impScale" min="1" required>
+
+  <label for="description">Beskrivning:</label>
+  <textarea name="description"></textarea>
+
+  <input type="submit" value="Lägg till">
+</form>
