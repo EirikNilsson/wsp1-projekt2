@@ -10,6 +10,29 @@ body {
   align-items: center;
   font-family: Arial, sans-serif;
   background-color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background: #333;
+  color: #fff;
+  padding: 1em;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 2em;
 }
 
 .header {
@@ -33,24 +56,46 @@ body {
   width: 200px;
   height: 250px;
   display: flex;
+  flex-direction: column; /* Låt innehållet staplas vertikalt */
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  background-color: #33b3b8; /* Blå bakgrund */
+  color: rgb(0, 0, 0); /* Vit text för bättre kontrast */
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Liten skugga för 3D-effekt */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.add-card {
-  background-color: #D3C6C6;
-  position: relative;
-  font-size: 36px;
-  color: #000;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
 }
 
-.add-card span {
-  font-size: 48px;
+.delete {
+  background-color: red;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.add-card:hover {
-  cursor: pointer;
-  transform: scale(1.1); 
-  transition: transform 0.3s ease, background-color 0.3s ease;
+.delete:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+
+.edit {
+  background-color: yellow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+li {
+  text-align: left;
+}
+
+
+

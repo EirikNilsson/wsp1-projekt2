@@ -1,32 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
-</head>
-<body>
-  <div class="header">
-    <h2>Todo list:</h2>
-    <a href="/thing/new">Lägg till ny uppgift</a>
-  </div>
+<h1>Logga in</h1>
 
-  <div class="grid-container">
-    <% @Todo.each do |thing| %>
-      <div class="card">
-        <ul>
+<form action="/login" method="POST">
+  <label>Username:
+    <input type="text" value="ola" name="username" id="username" required></label>
 
-          <h3><%= thing['thing'] %></h3>
-          <p>Viktighetsvärde: <%= thing['impScale'] %></p>
-          <p><%= thing['description'] %></p>
-          <form action="/thing/<%= thing['id'] %>/delete" method="post">
-            <input type="submit" value="Ta bort">
-          </form>
-          <a href="/thing/<%= thing['id'] %>/edit">Redigera</a>
-        </ul>
-      </div>
-    <% end %>
-  </div>
-</body>
-</html>
+  <label for="password">Password:
+    <input type="password" value="123" name="password" id="password" required></label>
+
+  <button type="submit">Login</button>
+</form>
+
