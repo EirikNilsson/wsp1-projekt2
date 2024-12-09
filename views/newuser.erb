@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Skapa ny användare</title>
+</head>
+<body>
+  <h1>Skapa ny användare</h1>
+
+  <% if @error %>
+    <p style="color: red;"><%= @error %></p>
+  <% end %>
+
+  <form action="/signup" method="post">
+    <label for="username">Användarnamn:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Lösenord:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="submit">Skapa</button>
+  </form>
+</body>
+</html>

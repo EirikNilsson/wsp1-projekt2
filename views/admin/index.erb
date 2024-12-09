@@ -6,31 +6,37 @@
     <title>Todo List</title>
     <link rel="stylesheet" type="text/css" href="/style.css?<%=Time.now.to_i%>">
 </head>
-<nav><a href="/logout">Logga ut</a></nav>
 <body>
   <div class="header">
     <h2>Todo list:</h2>
-    <form action="/thing/new" method="get">
+    <form action="/todos/new" method="get">
       <input type="submit" value="Lägg till" class="add">
+    </form>
+    <form action="/logout" method="get">
+      <input type="submit" value="Logga ut" class="edit">
     </form>
   </div>
 
   <div class="grid-container">
-    <% @todo.each do |thing| %>
+    <% @todos.each do |todos| %>
       <div class="card">
         <ul>
-          <h3><%= thing['thing'] %></h3>
-          <p>Viktighetsvärde: <%= thing['impScale'] %></p>
-          <p><%= thing['description'] %></p>
-          <form action="/thing/<%= thing['id'] %>/delete" method="post">
+          <h3><%= todos['todos'] %></h3>
+          <p>Viktighetsvärde: <%= todos['impScale'] %></p>
+          <p><%= todos['description'] %></p>
+          <form action="/todos/<%= todos['id'] %>/delete" method="post">
             <input type="submit" value="Ta bort" class="delete">
           </form>
-          <form action="/thing/<%= thing['id'] %>/edit" method="get">
+          <form action="/todos/<%= todos['id'] %>/edit" method="get">
             <input type="submit" value="Ändra" class="edit">
           </form>
         </ul>
       </div>
     <% end %>
   </div>
+  
+
+
 </body>
+
 </html>

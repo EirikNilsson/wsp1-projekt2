@@ -9,14 +9,14 @@ class Seeder
   end
 
   def self.drop_tables
-    db.execute('DROP TABLE IF EXISTS todo')
+    db.execute('DROP TABLE IF EXISTS todos')
     db.execute('DROP TABLE IF EXISTS users')
   end
 
   def self.create_tables
-    db.execute('CREATE TABLE todo (
+    db.execute('CREATE TABLE todos (
                   id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  thing TEXT NOT NULL,
+                  todos TEXT NOT NULL,
                   impScale INTEGER NOT NULL,
                   description TEXT NOT NULL
                 )')
@@ -30,11 +30,11 @@ class Seeder
 
   def self.populate_tables
     # Lägg till Todo-uppgifter
-    db.execute('INSERT INTO todo (thing, impScale, description) VALUES (?, ?, ?)', 
+    db.execute('INSERT INTO todos (todos, impScale, description) VALUES (?, ?, ?)', 
                ["Äta mat", 1, "Måste äta mat för att må bra"])
-    db.execute('INSERT INTO todo (thing, impScale, description) VALUES (?, ?, ?)', 
+    db.execute('INSERT INTO todos (todos, impScale, description) VALUES (?, ?, ?)', 
                ["Träna", 3, "Gå till gymmet och träna"])
-    db.execute('INSERT INTO todo (thing, impScale, description) VALUES (?, ?, ?)', 
+    db.execute('INSERT INTO todos (todos, impScale, description) VALUES (?, ?, ?)', 
                ["Handla mat", 2, "Gå till affären och handla"])
 
     # Lägg till en standardanvändare
@@ -46,7 +46,7 @@ class Seeder
   private
 
   def self.db
-    @db ||= SQLite3::Database.new('db/todo.sqlite').tap do |db|
+    @db ||= SQLite3::Database.new('db/todos.sqlite').tap do |db|
       db.results_as_hash = true
     end
   end

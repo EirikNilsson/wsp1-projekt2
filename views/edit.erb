@@ -1,14 +1,14 @@
-<form action="/thing/<%= @thing['id'] %>" method="post">
+<form action="/todos/<%= @todos['id'] %>" method="post">
   <input type="hidden" name="_method" value="put">
 
-  <label for="thing">Uppgift:</label>
-  <input type="text" name="thing" value="<%= @thing['thing'] %>" required>
+  <label for="todos">Uppgift:</label>
+  <input type="text" name="todos" value="<%= @todos['todos'] %>" required>
 
   <label for="impScale">Viktighetsvärde (1=Viktigast):</label>
-  <input type="number" name="impScale" min="1" value="<%= @thing['impScale'] %>" required>
+  <input type="number" name="impScale" min="1" value="<%= @todos['impScale'] %>" required>
 
   <label for="description">Beskrivning:</label>
-  <textarea name="description" required><%= @thing['description'] %></textarea>
+  <textarea name="description" required><%= @todos['description'] %></textarea>
 
   <input type="submit" value="Spara ändringar">
 </form>
